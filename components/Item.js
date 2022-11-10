@@ -9,22 +9,18 @@ export default function Item ({navigation, route})  {
 
 
   
-  const AddToCart = (()=>{
-    navigation.navigate('form')
-          
- })
-
+ 
 
 
   return (
     <View style={styles.container}>
     
 
-       <View style={{backgroundColor:'#FDCCD5', borderRadius:30, width:350, height:350, marginTop:80}}>
+       <View style={{backgroundColor:'#FDCCD5', borderRadius:30, width:350, height:350, marginTop:80}}  >
 
        <Text style={{ color:'white', fontStyle:'italic', fontSize:20, marginLeft:120, }}>{route.params.item}</Text>
        <Text style={{ color:'white', fontStyle:'italic', fontSize:20, marginLeft:120}}>{route.params.title}</Text>
-       <Text style={{paddingLeft:20, color:'#E16293', fontStyle:'italic', fontSize:30, marginLeft:230, marginTop:-50}}> R20 </Text>
+       <Text style={{paddingLeft:20, color:'#E16293', fontStyle:'italic', fontSize:30, marginLeft:230, marginTop:-50}}>{route.params.price} </Text>
 
 
        <Text style={{ color:'white', fontStyle:'italic', fontSize:20, marginLeft:20, marginTop:50, textAlign:'center' }}>Enjoy a smooth {route.params.item}
@@ -41,7 +37,7 @@ export default function Item ({navigation, route})  {
 
 
        
-       <TouchableOpacity onPress={AddToCart} style={styles.btn}>
+       <TouchableOpacity  onPress={()=> navigation.navigate('form', { menu:route.params.item, title:route.params.title, price:route.params.price})}  style={styles.btn}>
        <Text style={{ fontSize:20, color: '#fff', fontStyle:'italic', paddingLeft:3, paddingTop:2}}>Add to Cart</Text>
        </TouchableOpacity>
 

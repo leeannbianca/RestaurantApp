@@ -2,11 +2,46 @@ import React from 'react';
 import { View, Text, TouchableOpacity , StyleSheet, Image, TextInput, ScrollView} from 'react-native';
 import logo from './images/logo.png'
 
-function SignUp({navigation}) {
+import {db} from './Config/firebase'
+import { collection, addDoc } from "firebase/firestore"; 
 
-  const Form = (()=>{
-    navigation.navigate('home')
+function Forms({navigation, route}) {
+
+
+
+
+
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [cell, setCell] = React.useState('');
+  const [street, setStreet] = React.useState('');
+  const [suburb, setSuburb] = React.useState('');
+
+    
+
+
+
+  const AddOrders = ( async ()=>{
+
+
+    try {
+      const docRef = await addDoc(collection(db, "Orders"), {
+        name:name,
+        email:email,
+        cell:cell,
+        street:street,
+        suburb:suburb,
+        item:route.params.menu +  route.params.title,
+        price:route.params.price
        
+        
+      });
+      console.log("Document written with ID: ", docRef.id);
+      navigation.navigate('complete')
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+   
        
  })
 
@@ -14,21 +49,26 @@ function SignUp({navigation}) {
    
     <ScrollView>
 
-<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'white' }}>
+<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'white', paddingTop:20 }}>
 
-<Image source={logo} style={{ width:305, height:300 }} />
+<Image source={logo} style={{ width:100, height:100 }} />
 
-<TextInput placeholder="name" style={styles.input} />
+<Text style={{ fontStyle:'italic' , color:'#E16293',  fontSize:30}}>Enter Details</Text>
 
-<TextInput placeholder="email" style={styles.input} />
+<TextInput placeholder="name" style={styles.input}  onChangeText={(name)=> setName(name)} />
 
-<TextInput placeholder="cell" style={styles.input} />
+<TextInput placeholder="email" style={styles.input}  onChangeText={(email)=> setEmail(email)} />
 
-<TextInput placeholder="suburb" style={styles.input} />
+<TextInput placeholder="cell" style={styles.input}  onChangeText={(cell)=> setCell(cell)} />
 
-<TextInput placeholder="password" style={styles.input} />
+<TextInput placeholder="street" style={styles.input}  onChangeText={(street)=> setStreet(street)}/>
 
-<TouchableOpacity style={styles.btn} onPress={HomePage}> 
+<TextInput placeholder="suburb" style={styles.input}  onChangeText={(suburb)=> setSuburb(suburb)}/>
+
+
+
+
+<TouchableOpacity style={styles.btn} onPress={AddOrders}> 
 <Text style={{ fontSize:20, color: '#fff', fontStyle:'italic', paddingLeft:30, paddingTop:12}}>Submit</Text>
 </TouchableOpacity>
 
@@ -68,4 +108,4 @@ const styles = StyleSheet.create({
   }
   
 });
-export default Form
+export default Forms

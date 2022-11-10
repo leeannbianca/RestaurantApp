@@ -63,8 +63,8 @@ const HomePage = (()=>{
 
        </View>
 
-       <TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginLeft:-100, marginTop:-230}}>
-        <Image source={redvelvet} style={{ width:50, height:60, marginLeft:20, marginTop:20, borderRadius:30 }} />
+       <TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginLeft:-100, marginTop:-230}} onPress={()=> navigation.navigate('item', {item:"RedVelvet ", title:"Slice Cake", image:require('./images/redvelvet.png'), price:"R20"})}>
+        <Image source={redvelvet} style={{ width:50, height:60, marginLeft:20, marginTop:20, borderRadius:50 }} />
         </TouchableOpacity>
 
 
@@ -83,8 +83,8 @@ const HomePage = (()=>{
 
 
 
-<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginTop:-230, marginLeft:260}}>
-  <Image source={banannacake} style={{ width:60, height:60, marginLeft:15, marginTop:20, borderRadius:30 }} />
+<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginTop:-230, marginLeft:260}} onPress={()=> navigation.navigate('item', {item:"Bananna ", title:"Slice Cake", image:require('./images/banannacake.png'), price:"R20"})}>
+  <Image source={banannacake} style={{ width:60, height:60, marginLeft:15, marginTop:20, borderRadius:50 }} />
   </TouchableOpacity>
 
 
@@ -103,8 +103,8 @@ const HomePage = (()=>{
 </View>
 
 
-<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginLeft:-100, marginTop:-230}}>
-  <Image source={passionfruitcake} style={{ width:80, height:70, marginLeft:5, marginTop:10, }} />
+<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginLeft:-100, marginTop:-230}} onPress={()=> navigation.navigate('item', {item:"PassionFruit ", title:"Slice Cake", image:require('./images/passionfruitcake.png'), price:"R20"})}>
+  <Image source={passionfruitcake} style={{ width:80, height:70, marginLeft:5, marginTop:10, borderRadius:50 }} />
   </TouchableOpacity>
 
 
@@ -123,8 +123,8 @@ const HomePage = (()=>{
 </View>
 
 
-<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginTop:-230, marginLeft:260}}>
-  <Image source={carrot} style={{ width:50, height:50, marginLeft:20, marginTop:20, borderRadius:30 }} />
+<TouchableOpacity style={{backgroundColor:'#E16293', borderRadius:50, width:90, height:90, marginTop:-230, marginLeft:260}} onPress={()=> navigation.navigate('item', {item:"Carrot ", title:"Slice Cake", image:require('./images/carrot.png'), price:"R20"})}>
+  <Image source={carrot} style={{ width:50, height:50, marginLeft:20, marginTop:20, borderRadius:50 }} />
   </TouchableOpacity>
 
        
